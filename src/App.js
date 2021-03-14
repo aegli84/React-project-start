@@ -2,10 +2,11 @@ import './App.css';
 import About from './pages/About';
 import Home from './pages/Home';
 import Sale from './pages/Sale';
-import {useState} from 'react';
-import {Switch, Route, BrowserRouter as Router} from 'react-router-dom';
+import { useState } from 'react';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import styled from 'styled-components';
-import {NavLink as Link} from 'react-router-dom';
+import { NavLink as Link } from 'react-router-dom';
+import GlobalStyle from './components/GlobalStyle';
 
 const Nav = styled.nav`
     background: #0096;
@@ -15,7 +16,7 @@ const Nav = styled.nav`
     display: flex;
     align-items: center;
     /* float: 
-    justify-content: space-around; */}
+    justify-content: space-around; */
     padding: 2rem;
     border-bottom-left-radius: 25px;
     border-right: 10px solid #00ffff;
@@ -33,12 +34,14 @@ const NavLink = styled(Link)`
   font-weight: bold;
   cursor: pointer;
   padding: 27px 15px;
-  /*border-right: 1px solid #bbb;
+  transition: all 0.5s ease;
+  border-right: 1px solid #bbb;
+
   
 
   /* &.active { 
     color: #fff;
-  } */}
+  } */
 
   &:hover {
     color: #000;
@@ -59,51 +62,53 @@ const NavMenu = styled.div`
   margin-top: 85px;
 `
 function App() {
-  
+
   return (
-    
-    <>
-        <Router>
-          <Nav>
-            <NavMenu>
-              <NavLink to="/Home" >
-                Home
+
+    <div>
+      
+      <Router>
+      <GlobalStyle />
+        <Nav>
+          <NavMenu>
+            <NavLink to="/Home" >
+              Home
               </NavLink>
 
-              <NavLink to="/About" >
-                About
+            <NavLink to="/About" >
+              About
               </NavLink>
 
-              <NavLink to="/Sale" >
-                Sale
+            <NavLink to="/Sale" >
+              Sale
               </NavLink>
-            </NavMenu>
-          </Nav>
+          </NavMenu>
+        </Nav>
 
-            <Switch>
-              
-              <Route path='/About/Me'>
-                <Home/>
-              </Route>
-              <Route path='/Sale'>
-                <Sale/>
-              </Route>
-              <Route path='/About'>
-                <About/>
-              </Route>
+        <Switch>
 
-              <Route path='/Home'>
-                <Home/>
-              </Route>
+          <Route path='/About/Me'>
+            <Home />
+          </Route>
+          <Route path='/Sale'>
+            <Sale />
+          </Route>
+          <Route path='/About'>
+            <About />
+          </Route>
 
-              <Route path='/'>
-                <Home/>
-              </Route>
-              
-            </Switch>
-          </Router>
-      </>
-    );
+          <Route path='/Home'>
+            <Home />
+          </Route>
+
+          <Route path='/'>
+            <Home />
+          </Route>
+
+        </Switch>
+      </Router>
+    </div>
+  );
 
 }
 
@@ -116,13 +121,13 @@ export default App;
 
   //4//let rndPage = <Home/>;
 
-  /*3   if (userReq == 'About') {
-    rndPage = <About/>;
-  } else {
-    rndPage = <Home/>;
-  } */
+/*3   if (userReq == 'About') {
+  rndPage = <About/>;
+} else {
+  rndPage = <Home/>;
+} */
 
-/*5 
+/*5
   let goHome = () => {
     setActivePage(<Home/>);
   }
@@ -140,11 +145,11 @@ export default App;
       case 'Home':
         setActivePage(<Home/>)
         break;
-    
+
       case 'About':
         setActivePage(<About/>)
         break;
-    
+
       default:
         break;
     }
