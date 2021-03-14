@@ -41,6 +41,7 @@ import ProductList from '../components/ProductList';
 import './Home.css';
 import React, {useState} from 'react';
 
+
 let newCart = ['p6'];
 
 let products = [

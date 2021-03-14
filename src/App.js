@@ -14,8 +14,8 @@ const Nav = styled.nav`
     margin-right: -10vw;
     display: flex;
     align-items: center;
-    float: 
-    justify-content: space-around;
+    /* float: 
+    justify-content: space-around; */}
     padding: 2rem;
     border-bottom-left-radius: 25px;
     border-right: 10px solid #00ffff;
@@ -57,9 +57,7 @@ const NavMenu = styled.div`
   display: flex;
   margin-right: -24px;
   margin-top: 85px;
-
 `
-
 function App() {
   
   return (
@@ -75,7 +73,7 @@ function App() {
               <NavLink to="/About" >
                 About
               </NavLink>
-              
+
               <NavLink to="/Sale" >
                 Sale
               </NavLink>
@@ -88,7 +86,7 @@ function App() {
                 <Home/>
               </Route>
               <Route path='/Sale'>
-                <About/>
+                <Sale/>
               </Route>
               <Route path='/About'>
                 <About/>
